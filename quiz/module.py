@@ -1,52 +1,84 @@
-from dataclasses import dataclass
 import random
+import os
+
+from typing import Literal
+
+from .models import Question, Word, Category
+from xml.etree import ElementTree
 
 
-@dataclass
-class Question(object):
-	options: list
-	answer: str
-
-
-class DataManager(object):
+class XMLAccentsManager(object):
+	# TODO: xml append/remove
 	def __init__(self):
-		with open("../data/accents.txt", "r", encoding="UTF-8") as file:
-			raw = [line.replace("\n", "") for line in file.readlines() if not line.startswith("#")]
-			self.accents = [elem for elem in " ".join(raw).split(" ") if elem]
+		self.categories = []
+		self.words = {}
 
-	def get_data(self):
-		pass
+		self.parse()
+
+	def parse(self):
+		self.categories = []
+		self.words = {}
+
+		root = ElementTree.parse(os.environ["ACCENTS_PATH"]).getroot()
+		# TODO: config for path
+		for xml_category in root:
+			self.categories.append(Category(xml_category.tag, xml_category.attrib["title"]))
+			self.words[xml_category.tag] = []
+
+			for word in xml_category:
+				context = None
+				if "context" in word.attrib:
+					context = word.attrib["context"]
+				data = Word(word.text, context)
+				self.words[xml_category.tag].append(data)
+
+	async def get_list(self, categories: Literal["all"] | list[str] = "all"):
+		result = []
+		for category, words in self.words.items():
+			if categories == "all" or category in categories:
+				result.extend(words)
+		return result
 
 class AccentsQuiz(object):
 	def __init__(self, max_options: int = 3):
-		manager = DataManager()
-		manager.get_data()
+		self.manager = XMLAccentsManager()
 
 		self.max_options = max_options
 		self.vowels = "аеёиоэюяуы"
 
-	async def get_question(self):
-		word: str = random.choice(self.accents)
-		answer = word
+	@staticmethod
+	async def check_answer(question: Question, chosen_index: int):
+		if chosen_index == question.answer_index:
+			return True
+		return False
 
-		word = word.lower()
+	async def get_question(self, categories: Literal["all"] | list[str] = "all"):
+		words = await self.manager.get_list(categories)
+		word: Word = random.choice(words)
+
+		answer = word.content
+
+		symbols = word.content.lower().replace("ё", "е")
 		options = []
-		for i, letter in enumerate(word):
+		for i, letter in enumerate(symbols):
 			if letter not in self.vowels:
 				continue
-			option = word[:i]+letter.upper()+word[i + 1: len(word)+1]
+			option = symbols[:i]+letter.upper()+symbols[i + 1: len(symbols)+1]
 			if option != answer:
 				options.append(option)
 
 		options = options[:self.max_options - 1]
-		options.append(answer)
+		answer_option = answer.replace("Ё", "Е")
+		options.append(answer_option)
 		random.shuffle(options)
-		return Question(options, answer)
+		answer_index = options.index(answer_option)
+		return Question(options, answer_index, answer, word.context)
 
-	async def get_questions(self, count: int):
+	async def get_questions(self, count: int, categories: Literal["all"] | list[str] = "all"):
+		# TODO: count > len(available_questions)
 		questions = []
 		while len(questions) < count:
-			question = await self.get_question()
+			question = await self.get_question(categories)
 			if question not in questions:
 				questions.append(question)
 
