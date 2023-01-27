@@ -3,7 +3,7 @@ import os
 
 from typing import Literal
 
-from .models import Question, Word, Category
+from utils.quiz.models import Question, Word, Category
 from xml.etree import ElementTree
 
 
@@ -19,8 +19,8 @@ class XMLAccentsManager(object):
 		self.categories = []
 		self.words = {}
 
-		root = ElementTree.parse(os.environ["ACCENTS_PATH"]).getroot()
-		# TODO: config for path
+		root = ElementTree.parse("../../data/accents.xml").getroot()
+		# TODO: config for path?
 		for xml_category in root:
 			self.categories.append(Category(xml_category.tag, xml_category.attrib["title"]))
 			self.words[xml_category.tag] = []

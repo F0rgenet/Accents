@@ -1,5 +1,5 @@
 from unittest import IsolatedAsyncioTestCase
-from module import AccentsQuiz
+from main import AccentsQuiz
 
 # TODO: fix relative import
 class TestAccentsQuiz(IsolatedAsyncioTestCase):
