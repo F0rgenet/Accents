@@ -8,10 +8,11 @@
 
 Для хранения данных был использован фреймворк Sqlalchemy, который позволяет обращаться к базам данных используя объектно-реляционное отображение.
 
-## Генерация заданий ЕГЭ
+## Возможности 📌
+# Генерация заданий ЕГЭ
 ![til](assets/ege_showcase.gif)
 
-## Генерация тестов
+# Генерация тестов
 ![til](assets/test_showcase.gif)
 
 ## Стэк разработки 💻
@@ -25,7 +26,7 @@
 - **Логирование:**
   - [Loguru](https://loguru.readthedocs.io/en/stable/index.html/)
 
-## Руководство по установке
+## Руководство по установке 🛠
 
 1. Склонируйте репозиторий
 2. Создайте [venv](https://pythonchik.ru/okruzhenie-i-pakety/virtualnoe-okruzhenie-python-venv)
@@ -37,11 +38,11 @@
 4. Запустите [run.py](run.py)
 5. Введите токен бота
 
-## Ссылки
+## Ссылки 💡
 - **Бот:**
   - [AccentsBot](https://t.me/learn_accents_bot)
 - **Использованная документация:**
   - [GrooshaAiogram](https://mastergroosha.github.io/aiogram-3-guide/quickstart/)
-  - [KlepikovSqlalchemy(https://konstantinklepikov.github.io/myknowlegebase/notes/sqlalchemy-docs.html)
+  - [KlepikovSqlalchemy](https://konstantinklepikov.github.io/myknowlegebase/notes/sqlalchemy-docs.html)
 - **Использованные примеры:**
   - [AdvancedUserTelegramBot](https://github.com/BaggerFast/AdvancedUserTelegramBot)
