@@ -16,10 +16,10 @@
 ![til](assets/test_showcase.gif)
 
 ### Таблица лидеров:
-todo
+![til](assets/leaderboard_showcase.gif)
 
 ### Список ударений:
-todo
+![til](assets/accents_showcase.gif)
 
 ## Стэк разработки 💻
 
