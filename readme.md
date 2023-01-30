@@ -36,3 +36,12 @@
    ```
 4. Запустите [run.py](run.py)
 5. Введите токен бота
+
+## Ссылки
+- **Бот:**
+  - [AccentsBot](https://t.me/learn_accents_bot)
+- **Использованная документация:**
+  - [GrooshaAiogram](https://mastergroosha.github.io/aiogram-3-guide/quickstart/)
+  - [KlepikovSqlalchemy(https://konstantinklepikov.github.io/myknowlegebase/notes/sqlalchemy-docs.html)
+- **Использованные примеры:**
+  - [AdvancedUserTelegramBot](https://github.com/BaggerFast/AdvancedUserTelegramBot)
