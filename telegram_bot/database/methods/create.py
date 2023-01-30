@@ -6,7 +6,7 @@ from telegram_bot.database.main import Database
 from telegram_bot.database.models import User
 
 
-async def create_user(telegram_id: int, username):
+async def create_user(telegram_id: int, username: str):
 	session = Database().session
 	try:
 		session.query(User.telegram_id).filter(User.telegram_id == telegram_id).one()

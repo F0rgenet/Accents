@@ -133,7 +133,7 @@ async def quiz_ege_keyboard_changed(callback: CallbackQuery, callback_data: Quiz
 	await state.update_data(keyboard_state=current_keyboard_state)
 	keyboard = await keyboards.generate_for_ege(data["questions"][data["current_question_index"]-1], current_keyboard_state)
 
-	await callback.message.edit_text(callback.message.text, reply_markup=keyboard.as_markup())
+	await callback.message.edit_text(callback.message.html_text, reply_markup=keyboard.as_markup())
 
 @router.callback_query(Text(text="send_answer"))
 async def quiz_ege_task(callback: CallbackQuery, state: FSMContext):
