@@ -1,1 +1,2 @@
-from .main import AccentsQuiz
+from .main import AccentsQuizManager
+from .models import *

@@ -8,6 +8,9 @@ class User(Database.BASE):
 	__tablename__ = "users"
 	id = Column(Integer, primary_key=True)
 	telegram_id = Column(Integer, nullable=False)
+	username = Column(String, nullable=False)
+	solved_tasks = Column(Integer, default=0)
+	solved_correctly = Column(Integer, default=0)
 
 
 def register_models():
