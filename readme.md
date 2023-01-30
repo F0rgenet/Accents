@@ -25,5 +25,14 @@
 - **Логирование:**
   - [Loguru](https://loguru.readthedocs.io/en/stable/index.html/)
 
-## Руководство по запуску
-TODO
+## Руководство по установке
+
+1. Склонируйте репозиторий
+2. Создайте [venv](https://pythonchik.ru/okruzhenie-i-pakety/virtualnoe-okruzhenie-python-venv)
+3. Установите зависимостм:
+   ```
+   pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+4. Запустите [run.py](run.py)
+5. Введите токен бота
