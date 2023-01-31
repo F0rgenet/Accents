@@ -24,13 +24,13 @@
 ## Стэк разработки 💻
 
 - **Языки:**
-  - Python 3.10
+  - [Python 3.10](https://www.python.org/downloads/release/python-3100)
 - **Telegram:**
-  - [Aiogram](https://docs.aiogram.dev/en/latest/)
+  - [Aiogram](https://docs.aiogram.dev/en/latest)
 - **База данных:**
-  - [Sqlalchemy](https://docs.sqlalchemy.org/en/14/)
+  - [Sqlalchemy](https://docs.sqlalchemy.org/en/14)
 - **Логирование:**
-  - [Loguru](https://loguru.readthedocs.io/en/stable/index.html/)
+  - [Loguru](https://loguru.readthedocs.io/en/stable/index.html)
 
 ## Руководство по установке 🛠
 
@@ -48,7 +48,7 @@
 - **Бот:**
   - [AccentsBot](https://t.me/learn_accents_bot)
 - **Использованная документация:**
-  - [GrooshaAiogram](https://mastergroosha.github.io/aiogram-3-guide/quickstart/)
+  - [GrooshaAiogram](https://mastergroosha.github.io/aiogram-3-guide/quickstart)
   - [KlepikovSqlalchemy](https://konstantinklepikov.github.io/myknowlegebase/notes/sqlalchemy-docs.html)
 - **Использованные примеры:**
   - [AdvancedUserTelegramBot](https://github.com/BaggerFast/AdvancedUserTelegramBot)
