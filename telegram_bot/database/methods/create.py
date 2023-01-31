@@ -13,4 +13,4 @@ async def create_user(telegram_id: int, username: str):
 	except NoResultFound:
 		logger.info(f"В базу данных добавлен пользователь (id:{telegram_id})")
 		session.add(User(telegram_id=telegram_id, username=username))
-		session.commit()
+	session.commit()
